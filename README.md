@@ -1,0 +1,1 @@
+# docker-ansible-dynamic-inventory
