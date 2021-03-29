@@ -1,0 +1,25 @@
+- hosts: localhost
+  tasks:
+          - name: launching container
+            docker_container:
+                    name: "my_container"
+                    image: httpd
+                    state: started
+                    expose:
+                            "22"
+                    published_ports:
+                            "0.0.0.0:8080:80"
+            register: docker
+
+          - name: updating ansible inventory
+            blockinfile:
+                    block: |
+                            [docker]
+                            {{ docker.container.NetworkSettings.IPAddress }} ansible_ssh_user=root ansible_ssh_pass=accessforall  ansible_connection=ssh 
+                            
+                    dest: "/root/inven.txt"
+
+       
+
+
+       
