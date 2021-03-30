@@ -27,3 +27,4 @@ This will configure docker repo, install docker software, launch docker containe
 
 Then we can use the **configure.yml** playbook to configure the container. (provided that the container has ssh enabled)
 
+![con_launch.yml](images/Screenshot (271).png)
