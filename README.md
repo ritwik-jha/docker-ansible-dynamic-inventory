@@ -27,4 +27,30 @@ This will configure docker repo, install docker software, launch docker containe
 
 Then we can use the **configure.yml** playbook to configure the container. (provided that the container has ssh enabled)
 
-![con_launch.yml](images/Screenshot (271).png)
+![con_launch.yml](images/t-14-2.png)
+
+To run the playbook:
+
+```yml
+ansible-playbook con_launch.yml
+```
+
+**Results:**
+![results](images/t-14-1.png)
+
+So now the container has been launched and the inventory has been updated.
+
+As we have used httpd image the webserver is running thus if we try to access the 8080 port of base system it would route us to the 80 port of the container where the webserver is running. 
+
+![http_request](images/t-14-3.png)
+
+### Ansible Inventory 
+
+![inventory](images/t-14-4.png)
+
+Now we can use configure.yml to configure the container (after enabling ssh).
+To run configure.yml playbook:
+
+```yml
+ansible-playbook configure.yml
+```
